@@ -1,0 +1,685 @@
+/* ===== MEAL MENTOR HOME - ORIGINAL DESIGN ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    margin: 0;
+    padding: 0 0 30px 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 0% 30%, #f8eadb 0%, #ffdab9 45%, #b5e5d5 100%);
+    background-attachment: fixed;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+}
+
+.hamburger {
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(145deg, #2d5a4b, #1f463c);
+    border-radius: 5px;
+}
+
+.top-bar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-bar-icon {
+    font-size: 28px;
+}
+
+.top-bar-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(145deg, #2c5a4b, #1e3f3a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.profile-container {
+    position: relative;
+}
+
+.button1 {
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    background: linear-gradient(145deg, #2d5a4b, #1f463c);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button1:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #256353, #1b4a3d);
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ===== WELCOME SECTION ===== */
+.welcome-section {
+    text-align: center;
+}
+
+.welcome-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f463c;
+    margin-bottom: 5px;
+}
+
+.welcome-date {
+    font-size: 1rem;
+    color: #4a6b5f;
+}
+
+/* ===== PROGRESS CARD ===== */
+.progress-card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.progress-header {
+    margin-bottom: 20px;
+}
+
+.progress-heading {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c5a4b;
+}
+
+.progress-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.progress-bar-container {
+    flex: 1;
+    height: 20px;                    /* ← NOW THICKER */
+    background: rgba(220,235,225,0.7);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4cb57c, #2cb137);
+    border-radius: 20px;
+}
+
+.progress-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1f463c;
+    min-width: 45px;
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 15px;
+}    
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #4a6b5f;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f463c;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2c5a4b;
+}
+
+/* ===== MEALS CONTAINER ===== */
+.meals-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meal-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.7);
+    transition: 0.2s;
+}
+
+.meal-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.7);
+}
+
+.meal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.meal-emoji {
+    font-size: 26px;
+}
+
+.meal-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c5a4b;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(145deg, #2d5a4b, #1f463c);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #256353, #1b4a3d);
+}
+
+.plus {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.meal-input {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.meal-input input {
+    padding: 10px;
+    border: 2px solid rgba(200,215,205,0.8);
+    border-radius: 30px;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.meal-input input:focus {
+    border-color: #7aa095;
+}
+
+.meal-input button {
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #2d5a4b, #1f463c);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.meal-input button:hover {
+    background: linear-gradient(145deg, #256353, #1b4a3d);
+}
+
+.meal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meal-list p {
+    margin: 0;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 30px;
+    border-left: 4px solid #4cb57c;
+    font-size: 0.9rem;
+}
+
+/* ===== WATER TRACKER ===== */
+.water-tracker {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.7);
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.water-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.water-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c5a4b;
+}
+
+.water-count {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f463c;
+    background: rgba(255,255,255,0.5);
+    padding: 4px 12px;
+    border-radius: 30px;
+}
+
+.water-circles {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.water-circles input {
+    display: none;
+}
+
+.water-drop {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(220,235,245,0.8);
+    cursor: pointer;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.2s;
+}
+
+.water-drop::after {
+    content: "💧";
+    font-size: 22px;
+    opacity: 0;
+}
+
+.water-circles input:checked + .water-drop {
+    background: linear-gradient(145deg, #4aa3ff, #2a7fdd);
+    transform: scale(1.05);
+}
+
+.water-circles input:checked + .water-drop::after {
+    opacity: 1;
+}
+
+/* ===== NUTRITION SUMMARY ===== */
+.nutrition-summary {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.nutrition-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1f463c;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+}
+
+.menu-overlay.active { display: block; }
+
+.menu-sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    height: 100%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: left 0.3s;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255,255,255,0.8);
+}
+
+.menu-sidebar.active { left: 0; }
+
+.menu-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    border-bottom: 1px solid rgba(100,130,115,0.2);
+}
+
+.menu-close {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #4a6b5f;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.menu-close:hover {
+    background: rgba(100,130,115,0.1);
+    transform: rotate(90deg);
+}
+
+.menu-items {
+    list-style: none;
+    padding: 20px 0;
+    flex: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    margin: 5px 15px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #1f3a33;
+    font-weight: 600;
+}
+
+.menu-item:hover {
+    background: rgba(45,90,75,0.1);
+    transform: translateX(5px);
+}
+
+.menu-item.active {
+    background: linear-gradient(145deg, #2d5a4b, #1f463c);
+    color: white;
+}
+
+.menu-item-icon {
+    font-size: 22px;
+    margin-right: 12px;
+    color: #2d5a4b;
+}
+
+.menu-item.active .menu-item-icon { color: white; }
+
+.menu-footer {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(100,130,115,0.2);
+    text-align: center;
+}
+
+.menu-version {
+    color: #4a6b5f;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* ===== PROFILE DROPDOWN ===== */
+.profile-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 240px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 20px 35px -10px rgba(40,60,45,0.25);
+    border: 1px solid rgba(255,255,255,0.8);
+    z-index: 1001;
+    display: none;
+}
+
+.profile-dropdown.active { display: block; }
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(100,130,115,0.15);
+}
+
+.profile-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #2d5a4b, #1f463c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+}
+
+.profile-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f3a33;
+}
+
+.profile-email {
+    font-size: 11px;
+    color: #4a6b5f;
+    margin-top: 2px;
+}
+
+.profile-menu-items {
+    list-style: none;
+    padding: 8px;
+}
+
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #1f3a33;
+    font-size: 14px;
+}
+
+.profile-menu-item:hover {
+    background: rgba(45,90,75,0.08);
+    transform: translateX(3px);
+}
+
+.profile-divider {
+    height: 1px;
+    background: rgba(100,130,115,0.15);
+    margin: 6px 10px;
+}
+
+.profile-logout {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin: 8px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #d14b4b;
+    font-weight: 600;
+    font-size: 14px;
+    border-top: 1px solid rgba(100,130,115,0.15);
+}
+
+.profile-logout:hover {
+    background: rgba(209,75,75,0.08);
+    transform: translateX(3px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+    .meals-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .meal-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 500px) {
+    .top-bar-title {
+        font-size: 1.4rem;
+    }
+    
+    .top-bar-icon {
+        font-size: 24px;
+    }
+    
+    .button1 span:last-child {
+        display: none;
+    }
+    
+    .button1 {
+        padding: 8px 18px;
+    }
+    
+    .nutrition-summary {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        border-radius: 30px;
+    }
+    
+    .water-drop {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ===== DARK THEME - MINIMAL VERSION ===== */
+body.dark-theme {
+    background: radial-gradient(circle at 0% 30%, #1a3a2c, #0f2a1f 45%, #0a1f17 100%);
+}
+
+body.dark-theme .top-bar,
+body.dark-theme .settings-section,
+body.dark-theme .chart-card,
+body.dark-theme .meal-card,
+body.dark-theme .progress-card,
+body.dark-theme .menu-sidebar,
+body.dark-theme .profile-dropdown {
+    background: rgba(20, 45, 30, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+body.dark-theme .page-title,
+body.dark-theme .section-title,
+body.dark-theme .para,
+body.dark-theme .welcome-title {
+    color: #a0e8c0;
+}
+
+body.dark-theme .button1,
+body.dark-theme .add-btn,
+body.dark-theme .search-btn,
+body.dark-theme .save-btn {
+    background: linear-gradient(145deg, #2d8f5f, #1a6a40);
+}

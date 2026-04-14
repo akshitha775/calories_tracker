@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="stylesheets/logfood.css">
+    <script src="scripts/theme.js" defer></script>
+    <script src="scripts/logfood.js" defer></script>
+</head>
+<body>
+    <!-- HAMBURGER MENU SIDEBAR -->
+    <div id="menuOverlay" class="menu-overlay" onclick="toggleMenu()"></div>
+    
+    <div id="menuSidebar" class="menu-sidebar">
+        <div class="menu-header">
+            <button class="menu-close" onclick="toggleMenu()">&times;</button>
+        </div>
+        <ul class="menu-items">
+            <li class="menu-item" onclick="navigateTo('home')">
+                <span class="menu-item-icon">🏠</span>
+                <span class="menu-item-text">Home</span>
+            </li>
+            <li class="menu-item active" onclick="navigateTo('logfood')">
+                <span class="menu-item-icon">🍽️</span>
+                <span class="menu-item-text">Log Food</span>
+            </li>
+            <li class="menu-item" onclick="navigateTo('progress')">
+                <span class="menu-item-icon">📊</span>
+                <span class="menu-item-text">Progress</span>
+            </li>
+            <li class="menu-item" onclick="navigateTo('settings')">
+                <span class="menu-item-icon">⚙️</span>
+                <span class="menu-item-text">Settings</span>
+            </li>
+        </ul>
+        <div class="menu-footer">
+            <p class="menu-version">v1.0.0</p>
+        </div>
+    </div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="top-bar-brand">
+            <span class="top-bar-icon">🥗</span>
+            <span class="top-bar-title">MealMentor</span>
+        </div>
+        
+        <div class="profile-container">
+            <button class="button1" onclick="toggleProfileDropdown()">
+                <span>👤</span>
+                <span>Profile</span>
+                <span style="font-size: 12px;">▼</span>
+            </button>
+            
+            <div id="profileDropdown" class="profile-dropdown">
+                <div class="profile-header">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-info">
+                        <p class="profile-name">Admin</p>
+                        <p class="profile-email">admin@example.com</p>
+                    </div>
+                </div>
+                
+                <ul class="profile-menu-items">
+                    <li class="profile-menu-item" onclick="navigateToProfile()">
+                        <i>👤</i>
+                        <span>My Profile</span>
+                    </li>
+                    <li class="profile-menu-item" onclick="navigateToAccount()">
+                        <i>⚙️</i>
+                        <span>Account Settings</span>
+                    </li>
+                </ul>
+                
+                <div class="profile-divider"></div>
+                
+                <div class="profile-logout" onclick="logout()">
+                    <i>🚪</i>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        
+        <h1 class="page-title">🍽️ Log Food</h1>
+
+        <!-- MEAL SELECTOR - VERTICAL -->
+        <div class="meal-selector">
+            <button class="meal-btn" onclick="selectMeal('breakfast')">
+                <span class="meal-btn-text">🌅 Breakfast</span>                
+                <span class="meal-btn-plus">+</span>
+            </button>
+
+            <button class="meal-btn" onclick="selectMeal('lunch')">
+                <span class="meal-btn-text">☀️ Lunch</span>
+                <span class="meal-btn-plus">+</span>
+            </button>
+
+            <button class="meal-btn" onclick="selectMeal('dinner')">
+                <span class="meal-btn-text">🌙 Dinner</span>
+                <span class="meal-btn-plus">+</span>
+            </button>
+        </div>
+
+        <!-- CURRENTLY SELECTED MEAL -->
+        <div class="selected-meal-badge">
+            <span>Adding to:</span>
+            <span class="selected-meal-name" id="selectedMealName">Dinner</span>
+        </div>
+
+        <!-- SEARCH SECTION -->
+        <div class="search-card">
+            <h3 class="search-title">🔍 Search Food</h3>
+            <div class="search-row">
+                <input type="text" id="foodSearch" placeholder="e.g., Chicken, Rice, Apple" class="search-input">
+                <button class="search-btn" onclick="searchFood()">Search</button>
+            </div>
+        </div>
+
+        <!-- SEARCH RESULTS -->
+        <div id="searchResults" class="results-card" style="display: none;">
+            <h3 class="results-title">Search Results</h3>
+            <div id="resultsList" class="results-list"></div>
+        </div>
+
+        <!-- RECENT FOODS SECTION - NEW! -->
+        <div class="recent-card">
+            <h3 class="recent-title">⏱️ Recently Used</h3>
+            <div id="recentFoodsList" class="recent-grid">
+                <p class="empty-message">No recent foods yet</p>
+            </div>
+        </div>
+
+        <!-- QUICK ADD SECTION -->
+        <div class="quick-add-card">
+            <h3 class="quick-add-title">⭐ Quick Add</h3>
+            <div class="quick-add-grid">
+                <button class="quick-food-btn" onclick="addFood('Egg', 70)">🥚 Egg · 70 cal</button>
+                <button class="quick-food-btn" onclick="addFood('Milk', 120)">🥛 Milk · 120 cal</button>
+                <button class="quick-food-btn" onclick="addFood('Apple', 95)">🍎 Apple · 95 cal</button>
+                <button class="quick-food-btn" onclick="addFood('Banana', 105)">🍌 Banana · 105 cal</button>
+                <button class="quick-food-btn" onclick="addFood('Chicken Breast', 165)">🍗 Chicken · 165 cal</button>
+                <button class="quick-food-btn" onclick="addFood('Rice', 205)">🍚 Rice · 205 cal</button>
+            </div>
+        </div>
+
+        <!-- TODAY'S LOG - MEAL SECTIONS -->
+        <div class="log-section">
+            <h2 class="log-section-title">📋 Today's Log</h2>
+            
+            <!-- Breakfast Section -->
+            <div class="meal-log-card">
+                <div class="meal-log-header">
+                    <span class="meal-log-icon">🌅</span>
+                    <h3 class="meal-log-title">Breakfast</h3>
+                    <span class="meal-log-total" id="breakfastTotal">0 cal</span>
+                </div>
+                <div id="breakfastItems" class="meal-log-items"></div>
+            </div>
+            
+            <!-- Lunch Section -->
+            <div class="meal-log-card">
+                <div class="meal-log-header">
+                    <span class="meal-log-icon">☀️</span>
+                    <h3 class="meal-log-title">Lunch</h3>
+                    <span class="meal-log-total" id="lunchTotal">0 cal</span>
+                </div>
+                <div id="lunchItems" class="meal-log-items"></div>
+            </div>
+            
+            <!-- Dinner Section -->
+            <div class="meal-log-card">
+                <div class="meal-log-header">
+                    <span class="meal-log-icon">🌙</span>
+                    <h3 class="meal-log-title">Dinner</h3>
+                    <span class="meal-log-total" id="dinnerTotal">0 cal</span>
+                </div>
+                <div id="dinnerItems" class="meal-log-items"></div>
+            </div>
+            
+            <!-- Daily Total -->
+            <div class="daily-total">
+                <span>Daily Total</span>
+                <span id="dailyTotal">0 cal</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- ADD THESE 3 LINES FOR GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="stylesheets/account.css">
+        <script src="scripts/account.js" defer></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- ADD BOWL ICON -->
+            <div class="icon-bowl">🥗</div>
+            
+            <h2 style="text-align: center;">Create Account</h2>
+            <!-- ADD TAGLINE -->
+            <p class="brand-tagline">join meal mentor today</p>
+            
+           <form>
+                <div style="text-align: center">
+                    <input type="text" id="fullname" placeholder="Full Name" required class="input"> 
+                    <p id="nameError" style="color:red;"></p> 
+                </div> 
+                <br>
+                <div style="text-align: center">
+                    <input type="text" id="emailaddress" placeholder="Email address" required class="input">
+                    <p id="emailError" style="color:red;"></p>   
+                </div>
+                <br>
+                <div style="text-align: center">
+                    <input type="password" id="password" placeholder="Password" required class="input"> 
+                    <p id="passError" style="color:red;"></p>
+                </div>
+                <br>
+                <div style="text-align: center">
+                    <input type="password" id="confirmpassword" placeholder="Confirm Password" required class="input">  
+                    <p id="confirmError" style="color:red;"></p>  
+                </div>
+                <br>
+
+                <div style="text-align: center">
+                  <button type="button" onclick="register()" class="button">Sign up</button>>
+                </div>
+                
+                <!-- OPTIONAL: Add divider and login link -->
+                <div class="divider">
+                    <span class="divider-text">already have an account?</span>
+                </div>
+                
+                <div style="text-align: center">
+                    <a href="login_pg.html" class="login-link">Sign in</a>
+                </div>
+            </form>
+            
+            <!-- ADD NUTRITION FACTS FOOTER (optional) -->
+            <div class="nutrition-facts">
+                <span>🍎 0 cal</span>
+                <span>💪 0g protein</span>
+                <span>🧘 0g carbs</span>
+            </div>
+        </div>
+    </body>
+</html>

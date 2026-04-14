@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- ADD THESE 3 LINES FOR GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="stylesheets/details.css">
+        <script src="scripts/details.js" defer></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- ADD BOWL ICON -->
+            <div class="icon-bowl">🥗</div>
+            
+            <h1 style="text-align: center;">Personalize Your Fit</h1>
+            <!-- ADD TAGLINE -->
+            <p class="brand-tagline">tell us about yourself</p>
+            
+            <!-- ADD PROGRESS STEPS (optional) -->
+            <div class="progress-steps">
+                <div class="step active">
+                    <div class="step-circle">1</div>
+                    <span class="step-label">Details</span>
+                </div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <span class="step-label">Goals</span>
+                </div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">Ready!</span>
+                </div>
+            </div>
+            
+            <form>
+                <div style="text-align: center">
+                    <input type="text" id="username" placeholder="Username" required class="input">     
+                </div> 
+                <br>
+                <div style="text-align: center">
+                    <input type="number" id="age" placeholder="Age" required class="input">     
+                </div> 
+                <br>
+                <div style="text-align: center">
+                    <input type="number" step="0.1" id="currentweight" placeholder="Current weight (kg)" required class="input">     
+                </div>
+                <br>
+                <div style="text-align: center">
+                    <input type="number" step="0.1" id="targetweight" placeholder="Target weight (kg)" required class="input">     
+                </div>
+                <br>
+                <div style="text-align: center">
+                    <input type="number" id="height" placeholder="Height (cm)" required class="input">     
+                </div>
+                <br>
+
+                <div style="text-align: center">
+                    <select id="gender" name="gender" class="select">
+                        <option value="" disabled selected>Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <br>
+                
+                <div style="text-align: center">
+                    <button onclick="saveDetails()" type="button" class="button">Continue →</button>
+                </div>
+            </form>
+            
+            <!-- ADD NUTRITION FACTS FOOTER (optional) -->
+            <div class="nutrition-facts">
+                <span>🍎 Track calories</span>
+                <span>💪 Reach goals</span>
+                <span>🧘 Stay healthy</span>
+            </div>
+        </div>
+    </body>
+</html>
